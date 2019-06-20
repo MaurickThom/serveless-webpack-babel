@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "description": "Serverless webpack example using Babel",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "sls offline"
   },
   "author": "Dante Calderon <dantehemerson@gmail.com> (http://dantecalderon.netlify.com)",
   "license": "MIT",
@@ -13,6 +14,7 @@
     "babel-plugin-transform-runtime": "^6.23.0",
     "babel-polyfill": "^6.23.0",
     "babel-preset-env": "^1.6.0",
+    "serverless": "^1.45.1",
     "serverless-offline": "^5.3.3",
     "serverless-webpack": "^5.3.1",
     "webpack": "^4.34.0"
