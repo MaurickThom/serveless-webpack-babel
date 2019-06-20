@@ -2,14 +2,20 @@ if (!global._babelPolyfill) {
   require("babel-polyfill");
 }
 
-export const hello = (event, context, cb) => {
-  const p = new Promise((resolve, reject) => {
-    resolve("success");
-  });
-  p.then(r =>
-    cb(null, {
-      message: "Go Serverless Webpack (Babel) v1.0! First module!",
+export const hello = async (event, context, cb) => {
+  const p = () =>
+    new Promise((resolve, reject) => {
+      resolve("success");
+    });
+
+  try {
+    const r = await p();
+    return cb(null, {
+      message: `${r} Go Serverless Webpack (Babel) v1.0! Este es el primer modulo`,
       event
-    })
-  ).catch(e => cb(e));
+    });
+  } catch (e) {
+    console.log(e);
+    return cb(null, e);
+  }
 };
