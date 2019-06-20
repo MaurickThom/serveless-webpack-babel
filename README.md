@@ -9,3 +9,8 @@ yarn
 ```
 sls offline
 ```
+or
+
+```
+yarn dev
+```
