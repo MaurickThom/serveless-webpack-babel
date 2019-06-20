@@ -2,20 +2,18 @@ if (!global._babelPolyfill) {
   require("babel-polyfill");
 }
 
-export const hello = async (event, context, cb) => {
-  const p = () =>
-    new Promise((resolve, reject) => {
-      resolve("success");
-    });
+const p = () =>
+  new Promise((resolve, reject) => {
+    resolve("Success!!!");
+  });
 
+export const hello = async event => {
   try {
-    const r = await p();
-    return cb(null, {
-      message: `${r} Go Serverless Webpack (Babel) v1.0! Este es el primer modulo`,
-      event
-    });
+    const response = await p();
+    return {
+      message: `Finish with: ${response}`
+    };
   } catch (e) {
-    console.log(e);
-    return cb(null, e);
+    return e;
   }
 };
